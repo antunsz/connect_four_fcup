@@ -1,0 +1,1 @@
+executar com o comando python3 main.py

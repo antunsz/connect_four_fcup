@@ -1,10 +1,9 @@
 import os
 import random
-from .HumanPlayer import HumanPlayer
-from .MachinePlayer import MachinePlayer
+
 
 class Game:
-    def __init__(self, width=7, height=6, board_array=[]):
+    def __init__(self, player1, player2, width=7, height=6, board_array=[]):
         self._width = width
         self._height = height
         self._player_avatars = ["x", "o"]
@@ -15,8 +14,8 @@ class Game:
         self._winner = None
         self._current_player = None
         self._players = [None, None]
-        self._players[0] = HumanPlayer(self._player_avatars[0])
-        self._players[1] = MachinePlayer(self._player_avatars[1])
+        self._players[0] = player1(self._player_avatars[0])
+        self._players[1] = player2(self._player_avatars[1])
 
         for i in range(2):
             print("\t{} joga com {}".format(self._players[i]._type, self._player_avatars[i]))
